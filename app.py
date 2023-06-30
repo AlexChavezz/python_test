@@ -20,4 +20,8 @@ def results():
     return render_template("results.html", data=data, average=average)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run()
+=======
+    app.run(debug=False)
+>>>>>>> 911625f1864d44cbefc442c6459434b0b5f904a2
