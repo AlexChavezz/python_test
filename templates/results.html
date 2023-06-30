@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet"/>
+    <title>Results</title>
+</head>
+<body class="light-mode">
+    <header>
+        <div>
+            <img src="{{ url_for('static', filename='/assets/Python-logo-notext.svg.png') }}" alt="python_logo" class="python-header-logo"/>
+            <h1>Python Test</h1>
+            <span class="change_mode">
+                Turn Light
+            </span>
+        </div>
+        <p class="python-header-note">CALIFICACION: {{average}}</p>
+    </header> 
+    <main class="python-main-container">
+        <form action="/">
+            {% for item in data %}
+            {% if item.type == "multiple-choice" %}
+            <div class="python-form-item-question">
+                <p>{{ item.question }}</p>
+                {% for answer in item.answers %}
+                <input type="radio" id="{{item._id}}-{{loop.index}}" class="python-form-item-question-item" name="{{item._id}}" value="{{ answer }}" {% if answer == item.user_answer %}checked{% endif %} disabled/>
+                <label for="{{item._id}}-{{loop.index}}">{{ answer }}</label><br>
+                {% endfor %}
+                {% if item.right_answer != item.user_answer %}
+                <div class="alert python-form-item-question-danger-alert">
+                    La respuesta correcta es: {{ item.right_answer }}
+                </div>
+                {% else %}
+                <div class="alert python-form-item-question-success-alert">
+                    La respuesta correcta es: {{ item.right_answer }}
+                </div>
+                {% endif %}
+
+            </div>
+            {% elif item.type == "text" %}
+            <div class="python-form-item-question">
+                <p>{{ item.question }}</p>
+                <input type="text" name="{{item._id}}" value="{{item.user_answer}}" autocomplete="off" disabled  class="python-form-item-question-item python-form-item-text-input"/>
+                {% if item.right_answer != item.user_answer %}
+                <div class="alert python-form-item-question-danger-alert">
+                    La respuesta correcta es: {{ item.right_answer }}
+                </div>
+                {% else %}
+                <div class="alert python-form-item-question-success-alert">
+                    La respuesta correcta es: {{ item.right_answer }}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <input type="submit" value="Intentar de nuevo" class="python-button python-button-primary"/>
+        </form>
+    </main>
+</body>
+</html>

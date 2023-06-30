@@ -1,0 +1,141 @@
+/* Common Styles */
+.light-mode  {
+    background-color: #fafdfd;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.dark-mode {
+    background-color: #1e1e1e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #ccc;
+}
+
+/* Header Styles */
+header {
+    width: 1250px;
+    margin: 0 auto;
+    position: relative;
+}
+
+header > div {
+    display: flex;
+    margin: 0px 20px;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.python-header-logo {
+    width: 50px;
+    height: 50px;
+    margin: 0px 20px;
+}
+
+.change_mode {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 20px;
+}
+
+/* Main Container Styles */
+.python-main-container {
+    width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form .python-form-item-question {
+    margin: 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+form .python-form-item-question-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+form .python-form-item-question-item {
+    margin: 10px 0px;
+}
+
+.python-form-item-text-input {
+    padding: 6px;
+    outline: 1px solid #ccc;
+    width: 200px;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 30px);
+    padding: 15px;
+    margin-top: 35px;
+}
+
+.python-form-item-question-danger-alert {
+    color:#58151c;
+    background-color: #f8d7da;
+    border: 2px solid #f1aeb5;
+    
+}
+
+.python-form-item-question-success-alert {
+    color:#0a3622;
+    background-color: #d1e7dd;
+    border: 2px solid #a3cfbb;
+}
+.banner {
+    padding: 50px;
+}
+
+.python-header-note {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding: 50px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        width: auto;
+        padding: 0 10px;
+    }
+
+    .python-main-container {
+        width: auto;
+        padding: 0 10px;
+    }
+}
+
+/* Button Styles */
+.python-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.python-button-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.python-button-primary:hover {
+    background-color: #0056b3;
+}
