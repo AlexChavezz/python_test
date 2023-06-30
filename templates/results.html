@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="{{ url_for('static', filename='/assets/Python-logo-notext.svg.png') }}" />
     <title>Results</title>
 </head>
 <body class="light-mode">
@@ -15,7 +16,7 @@
             <img src="{{ url_for('static', filename='/assets/Python-logo-notext.svg.png') }}" alt="python_logo" class="python-header-logo"/>
             <h1>Python Test</h1>
             <span class="change_mode">
-                Turn Light
+                Change Theme
             </span>
         </div>
         <p class="python-header-note">CALIFICACION: {{average}}</p>
@@ -60,5 +61,6 @@
             <input type="submit" value="Intentar de nuevo" class="python-button python-button-primary"/>
         </form>
     </main>
+    <script src="{{ url_for('static', filename='/js/app.js') }}"></script>
 </body>
 </html>

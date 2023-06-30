@@ -3,6 +3,8 @@
     background-color: #fafdfd;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    transition: all 0.3s ease-in-out;
+
 }
 
 .dark-mode {
@@ -10,6 +12,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: #ccc;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Header Styles */
@@ -129,6 +132,7 @@ form .python-form-item-question-item {
     cursor: pointer;
     border-radius: 5px;
     border: none;
+    margin: 50px 0px;
 }
 
 .python-button-primary {

@@ -7,4 +7,4 @@ def get_average(questions):
     except Exception as e:
         print(e)
         return 0
-    return total / len(questions) * 100
+    return round(total / len(questions) * 100, 2)

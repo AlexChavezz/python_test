@@ -8,6 +8,7 @@ class DB:
         self.url = f"mongodb+srv://{os.getenv('user_name')}:{os.getenv('password')}@myatlasclusteredu.fz1s1hm.mongodb.net/?retryWrites=true&w=majority"
     def get_all_questions(self):
         try:
+            print(self.url)
             client = MongoClient(self.url)
             questions_coll = client.PyTestApp.questions
             data = list(questions_coll.find())
