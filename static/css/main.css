@@ -40,6 +40,12 @@ header > div {
     right: 0px;
     top: 0px;
     margin: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 /* Main Container Styles */
@@ -118,6 +124,9 @@ form .python-form-item-question-item {
     .python-main-container {
         width: auto;
         padding: 0 10px;
+    }
+    header > div {
+        display: block;
     }
 }
 
