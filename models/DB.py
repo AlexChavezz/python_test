@@ -1,6 +1,6 @@
 from pymongo import MongoClient
+import datetime
 import os
-
 class DB:
     def __init__(self) -> None:
         self.connection = None
@@ -22,6 +22,14 @@ class DB:
             questions_coll = client.PyTestApp.questions
             data = list(questions_coll.find({}))
             return data
+        except Exception as e:
+            print(e)
+            return None
+    def save_attempt(self, score):
+        try:
+            client = MongoClient(self.url)
+            attempts_coll = client.PyTestApp.attempts
+            attempts_coll.insert_one({"score": score, "date": datetime.datetime.now().isoformat()})
         except Exception as e:
             print(e)
             return None   
