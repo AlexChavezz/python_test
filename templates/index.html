@@ -32,7 +32,7 @@
             <div class="python-form-item-question">
             <p class="python-form-item-question-title">{{ item.question }}</p>
             {% for answer in item.answers %}
-                <input type="radio" id="{{item._id}}-{{loop.index}}" name="{{item._id}}" value="{{ answer }}" class="python-form-item-question-item" />
+                <input type="radio" id="{{item._id}}-{{loop.index}}" name="{{item._id}}" value="{{ answer }}" class="python-form-item-question-item" required />
                 <label for="{{item._id}}-{{loop.index}}">{{ answer }}</label><br>
                 {% endfor %}
             </div>
@@ -40,7 +40,7 @@
             <div class="python-form-item-question">
                 <p class="python-form-item-question-title">{{ item.question }}</p>
                 <label for="{{item._id}}">Escribe Aquí</label><br>
-                <input type="text" name="{{item._id}}" value="" autocomplete="off" class="python-form-item-question-item python-form-item-text-input"/>
+                <input type="text" name="{{item._id}}" value="" autocomplete="off" class="python-form-item-question-item python-form-item-text-input" required />
             </div>
             {% endif %}
             {% endfor %}

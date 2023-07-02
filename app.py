@@ -23,7 +23,8 @@ def results():
     db = DB()
     data = join(db.get_answers(), list(request.args.items()))
     average = get_average(data)
-    db.save_attempt(average)
+    if average != 0:
+        db.save_attempt(average)
     return render_template("results.html", data=data, average=average)
 
 if __name__ == "__main__":
