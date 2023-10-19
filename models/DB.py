@@ -27,6 +27,7 @@ class DB:
             print(e)
             return None
     def save_attempt(self, score):
+        ipinfo = IPInfo()
         try:
             client = MongoClient(self.url)
             attempts_coll = client.PyTestApp.attempts
