@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from flask_ipinfo import IPInfo
 import datetime
 import os
 class DB:
