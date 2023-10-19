@@ -68,7 +68,7 @@ form .python-form-item-question-title {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    
 }
 
 form .python-form-item-question-item {
@@ -110,7 +110,7 @@ form .python-form-item-question-item {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    
     padding: 50px;
 }
 
