@@ -29,7 +29,7 @@ class DB:
         try:
             client = MongoClient(self.url)
             attempts_coll = client.PyTestApp.attempts
-            attempts_coll.insert_one({"score": score, "date": datetime.datetime.now().isoformat()})
+            attempts_coll.insert_one({"score": score, "date": datetime.datetime.now().isoformat(), "ip-address": ipinfo.ipaddress})
         except Exception as e:
             print(e)
             return None   
