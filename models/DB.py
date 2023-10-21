@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from flask_ipinfo import IPInfo
 import datetime
 import os
 class DB:
@@ -26,12 +25,11 @@ class DB:
         except Exception as e:
             print(e)
             return None
-    def save_attempt(self, score):
-        ipinfo = IPInfo()
+    def save_attempt(self, score, address):
         try:
             client = MongoClient(self.url)
             attempts_coll = client.PyTestApp.attempts
-            attempts_coll.insert_one({"score": score, "date": datetime.datetime.now().isoformat(), "ip-address": ipinfo.ipaddress})
+            attempts_coll.insert_one({"score": score, "date": datetime.datetime.now().isoformat(), "ip-address": address})
         except Exception as e:
             print(e)
             return None   

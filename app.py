@@ -2,7 +2,6 @@ from models.DB import DB
 from flask import Flask, render_template, request, redirect, url_for
 from helper.join import join
 from helper.average import get_average
-from pymongo import MongoClient
 import random
 
 app = Flask(__name__)
@@ -10,6 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+   
     db = DB()
     data = db.get_all_questions()
     random.shuffle(data)
@@ -19,12 +19,12 @@ def index():
     return render_template("index.html", data=data)
 
 @app.route("/results")
-def results():          
+def results():        
     db = DB()
     data = join(db.get_answers(), list(request.args.items()))
     average = get_average(data)
     if average != 0:
-        db.save_attempt(average)
+        db.save_attempt(average, request.remote_addr)
     return render_template("results.html", data=data, average=average)
 
 if __name__ == "__main__":
