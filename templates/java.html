@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="{{ url_for('static', filename='/assets/java.webp') }}" />
+    <title>java test</title>
+</head>
+
+<body class="light-mode">
+    {% block header %}
+    <header>
+        <div>
+            <img src="{{ url_for('static', filename='/assets/java.webp') }}" alt="python_logo" class="python-header-logo"/>
+            <h1>Java Test</h1>
+            <span class="change_mode">
+                <img src="{{ url_for('static', filename='/assets/light_mode_FILL0_wght400_GRAD0_opsz48.svg') }}" alt="light">
+                Change Theme
+            </span>
+        </div>
+    </header>
+    {% endblock %}
+    <main class="python-main-container">
+        <form action="/java_results">
+            {% for item in data %}
+            {% if item.type == "multiple-choice" %}
+            <div class="python-form-item-question">
+            <p class="python-form-item-question-title">{{ item.question }}</p>
+            {% for answer in item.answers %}
+                <input type="radio" id="{{item._id}}-{{loop.index}}" name="{{item._id}}" value="{{ answer }}" class="python-form-item-question-item" required />
+                <label for="{{item._id}}-{{loop.index}}">{{ answer }}</label><br>
+                {% endfor %}
+            </div>
+            {% elif item.type == "text" %}
+            <div class="python-form-item-question">
+                <p class="python-form-item-question-title">{{ item.question }}</p>
+                <label for="{{item._id}}">Escribe Aquí</label><br>
+                <input type="text" name="{{item._id}}" value="" autocomplete="off" class="python-form-item-question-item python-form-item-text-input" required />
+            </div>
+            {% endif %}
+            {% endfor %}
+            <input type="submit" value="Calificar" class="python-button python-button-primary"/>
+        </form>
+    </main>
+    <script src="{{ url_for('static', filename='/js/app.js') }}"></script>
+</body>
+</html>

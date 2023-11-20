@@ -27,5 +27,26 @@ def results():
         db.save_attempt(average, request.remote_addr)
     return render_template("results.html", data=data, average=average)
 
+@app.route("/java")
+def main_java():
+    db = DB()
+    data = db.get_java_questions()
+    random.shuffle(data)
+    for item in data:
+        if 'answers' in item:
+            random.shuffle(item['answers'])
+    return render_template("java.html", data=data)
+
+@app.route("/java_results")
+def java_results():
+    db = DB()
+    data = join(db.get_java_questions(), list(request.args.items()))
+    average = get_average(data)
+    if average != 0:
+        db.save_attempt(average, request.remote_addr)
+    return render_template("results.html", data=data, average=average)
+
+
+
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
