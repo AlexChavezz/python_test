@@ -8,6 +8,10 @@ app = Flask(__name__)
 
 
 @app.route("/")
+def main():
+    return render_template("main.html")
+
+@app.route("/python")
 def index():
    
     db = DB()
