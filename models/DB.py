@@ -42,3 +42,11 @@ class DB:
         except Exception as e:
             print(e)
             return None
+    def save_java_attempt(self, score, address):
+        try:
+            client = MongoClient(self.url)
+            attempts_coll = client.JavaTestApp.attempts
+            attempts_coll.insert_one({"score": score, "date": datetime.datetime.now().isoformat(), "ip-address": address})
+        except Exception as e:
+            print(e)
+            return None

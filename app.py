@@ -47,7 +47,7 @@ def java_results():
     data = join(db.get_java_questions(), list(request.args.items()))
     average = get_average(data)
     if average != 0:
-        db.save_attempt(average, request.remote_addr)
+        db.save_java_attempt(average, request.remote_addr)
     return render_template("results.html", data=data, average=average)
 
 
