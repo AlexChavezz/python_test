@@ -13,7 +13,7 @@ Este proyecto tiene el objetivo de ser una herramienta auxiliar para preparar a 
 **Cómo usar:**
 
 #### Estudiantes
-* Si eres estudiante puedes encontrar la aplicacion productiva en: **[edc.ealexis.com](edc.ealexis.com)**
+* Si eres estudiante puedes encontrar la aplicacion productiva en: **[https://edc.ealexis.com)]**
 
 **Tecnologías utilizadas:**
 * HTML, CSS, JAVASCRIPT.
